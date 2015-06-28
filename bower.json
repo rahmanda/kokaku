@@ -21,7 +21,9 @@
     "mustache.js": "~2.1.1",
     "nanobar": "~0.2.0",
     "momentjs": "~2.10.3",
-    "js-cookie": "~2.0.2"
+    "js-cookie": "~2.0.2",
+    "jquery-ajax-progress": "git://github.com/rahmanda/jquery-ajax-progress.git",
+    "jquery.geturlparam": "git://github.com/rahmanda/jquery.geturlparam.git"
   },
   "devDependencies": {
     "qunit": "~1.18.0",

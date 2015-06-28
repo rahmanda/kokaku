@@ -21,8 +21,8 @@
 @stop
 
 @section("scripts")
-<script src="/vendor/jquery-geturlparam.js"></script>
-<script src="/vendor/jquery-progress.js"></script>
+<script src="/vendor/jquery.geturlparam/jquery.geturlparam.min.js"></script>
+<script src="/vendor/jquery-ajax-progress/js/jquery.ajax-progress.js"></script>
 <script src="/vendor/nanobar/nanobar.min.js" type="text/javascript"></script>
 <script src="/vendor/jQuery-File-Upload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
 <script src="/vendor/jQuery-File-Upload/js/jquery.iframe-transport.js" type="text/javascript"></script>
