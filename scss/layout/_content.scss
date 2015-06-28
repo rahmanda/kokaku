@@ -1,0 +1,259 @@
+/*
+Name : side-navigation
+Function : styling layout for side-navigation 
+ */
+
+$content-mg : 50px 0 0 200px;
+$content-pd: 20px 0 0 40px; 
+$content-nav-br : 1px solid $gray-light; 
+
+%base-content {
+	width: calc(100% - 200px);
+	margin: $content-mg;
+	color: $text-color;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.content {
+	@extend %base-content;
+}
+
+.nav-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 3.5em;
+	border-bottom: $content-nav-br;
+	@extend %content-nav;
+	@extend %content-nav-ul;
+	.act-tabs {
+		@extend %content-act-tabs;
+	}
+	.active a {
+		@extend %content-nav-active;
+	}
+	.items-count {
+		position: absolute;
+		top: 0;
+		right: 0;
+		@extend %content-items-count;
+	}
+	.act-orderBy {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0 20px;
+		@extend %content-act-sort;
+	}
+	.title {
+		float: right;
+		line-height: 3.5em;
+		padding: 0 20px;
+	}
+	.status {
+		float: right;
+		padding: 0 20px 0 0;
+		line-height: 3.5em;
+		&.complete span {
+			padding: 5px 8px;
+			border-radius: 5px;
+			background: $green;
+		}
+		&.incomplete span{
+			padding: 5px 8px;
+			border-radius: 5px;
+			background: $orange;
+		}
+	}
+}
+
+.items-wrap, .upload-wrap {
+	position: relative;
+	top: 49px;
+	left: 0;
+}
+
+.items-wrap {
+	border-bottom: $content-nav-br;
+	@extend %items-wrap;
+	@extend %button-upload;
+}
+
+.list-items {
+	z-index: inherit;
+	color: $text-color;
+	header {
+		padding: 4px 8px;
+		color: $text-color;
+		border-bottom: $content-nav-br;
+		background-color: $gray-super-light;
+		ul li {
+			display: inline-block;
+		}
+		ul {
+			@extend %meta-item;
+		}
+	}
+	.lists .act-edit-item {
+		@extend %act-edit-item;
+		@extend %list-items;
+	}
+}
+
+.list-file {
+	@extend %list-files;
+}
+
+.edit-slider {
+	@include page();
+	z-index: 99;
+	overflow-y: auto;
+	opacity: 0; 
+	&.show {
+		left: 275px;
+		opacity: 1;
+	} 
+	header {
+		margin-bottom: 20px; 
+		h2 {
+			font-size: 2.5em;
+			font-weight: $light; 
+		} 
+	}
+}
+
+.box-upload {
+	background-color: $white-calm;
+}
+.box-browse {
+	padding: 20px 20px 0 20px;
+}
+
+.upload-wrap .prog-upload { // ??? 
+	margin: 20px 0 0 0;
+	height: 35px * 9 + 20px;
+	overflow-y: auto;
+	border-top: 1px solid $gray-light;
+	border-bottom: 1px solid $gray-light;
+	color: $black-calm;
+	.item-upload {
+		display: block;
+		border-bottom: 1px solid $gray-light;
+		@include transition(all 0.5s ease-in-out);	
+	}
+	.item-upload > div {
+		position: relative;
+		padding: 10px 20px;
+		.file-name {
+			display: block;
+			max-width: 50%;
+		}
+		.file-size {
+			position: absolute;
+			display: block;
+			top: 25%;
+			right: 430px;
+		}
+		.bar-prog {
+			position: absolute;
+			display: block;
+			height: 5px;
+			width: 360px;
+			top: 40%;
+			right: 50px;
+			background-color: $gray-light;
+			span {
+				display: block;
+				width: 50%;
+				height: 100%;
+				background-color: $blue-bright;
+			}
+		}
+		.act-upload {
+			position: absolute;
+			display: block;
+			top: 25%;
+			right: 20px;
+			.btn-remove {
+				@extend %button-remove;
+			}
+		}
+	}
+}
+
+.add-form {
+	padding-top: 1em;
+	@extend %form;
+	.group-input {
+		@extend %tabs;
+	}
+	.act-input {
+		overflow: hidden;
+	}
+	.btn-add {
+		@extend %button-add;
+	}
+}
+
+.pagination {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	font-size: 0.95em;
+	padding: 10px 0;
+	display: block;
+	overflow: hidden;
+	border-top: 1px solid $border-color;
+	.pages-totalItem {
+		margin-left: 8px;
+	}
+	.pages-count {
+		color: black;
+		float: right;
+		margin-right: 20px;
+	}
+	.control {
+		display: block;
+		float: right;
+		li {
+			float: left;
+			position: relative;
+			display: block;
+			width: 1em;
+			height: 1em;
+			margin-right: 20px;
+			&::before {
+				top: 0;
+				left: 0;
+			}
+		}
+		li a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block; 
+			width: 100%;
+			height: 100%;
+		}
+		.act-first {
+			@include iconize($content: "\f049", $font-size: 1em, $color: $gray-light);
+		}
+		.act-previous {
+			@include iconize($content: "\f04a", $font-size: 1em, $color: $gray-light);
+		}
+		.act-next {
+			@include iconize($content: "\f04e", $font-size: 1em, $color: $gray-light);
+		}
+		.act-last {
+			@include iconize($content: "\f050", $font-size: 1em, $color: $gray-light);
+		}
+		.available::before {
+			color: darken($gray-light, 40%);
+		}
+		.available:hover {
+			cursor: pointer;
+		}
+	}
+}

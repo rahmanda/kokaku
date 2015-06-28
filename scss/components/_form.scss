@@ -1,0 +1,101 @@
+/*
+Name : form
+Function : store form element style
+ */
+
+@import 'button';
+
+%input-text {
+	width: 100%;
+	padding: 5px 10px;
+	// border-radius: 5px;
+	font-family: $font-family; // move to theme
+	border: 2px solid $blue-bright; // move to theme
+	background-color: $gray;
+	@include transition(all 0.15s ease-in-out);
+	&:focus { // move to theme
+		outline: none;
+		background-color: $white;
+	}
+}
+
+%input-upload {
+	color: $black-calm;
+	padding: 60px 20px;
+	width: 100%;
+	display: inline-block;
+	margin: 0 auto;
+	font-size: 20px;
+	border: 5px dashed $gray-light;
+}
+
+.upload {
+	@extend %input-upload;
+}
+
+%form-header {
+	padding: 20px;
+	.act-close { // ????
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		@extend %button-x;
+	}
+}
+
+%label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: $bold;
+}
+
+%input {
+	display: block;
+	margin-bottom: 1em;
+	input[type='text'], input[type='password'], input[type='date'], select, textarea {
+		@extend %input-text;
+	}
+	textarea {
+		height: 10em;
+	}
+	&.hidden {
+		display: none;
+	}
+}
+
+%fieldset {
+	margin-bottom: 1em;
+	legend {
+		font-size: 1.25em;
+		font-weight: $bold;
+		margin-bottom: 0.5em;
+		text-transform: capitalize;
+	} 
+}
+
+%form {
+	// float: right;
+	padding: 0 20px 20px 20px;
+	label {
+		@extend %label;
+	}
+	.input, .form-group {
+		@extend %input;
+	}
+	.btn, .form-group input[type='submit'] {
+		@extend %button;
+		background: $blue-bright;
+		color: $white;
+		font-weight: $bold;
+		font-size: 1.5em;
+	}
+
+	.form-group .help-block {
+		padding: 5px 0;
+		font-style: italic; 
+	}
+
+	fieldset {
+		@extend %fieldset;
+	}
+}

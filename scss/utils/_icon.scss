@@ -1,0 +1,10 @@
+@mixin iconize($content: "\f00d", $font-size: 1.5em, $color: $white, $font-family: FontAwesome) {
+	&:before {
+		position: absolute;
+		display: block;
+		font-family: $font-family;
+		content: $content;
+		font-size: $font-size; // move to theme
+		color: $color; // move to theme
+	}
+}

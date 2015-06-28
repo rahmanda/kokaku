@@ -1,0 +1,29 @@
+/*
+Name: slider
+Function: store style for menu slider
+ */
+$edit-slider-hg: 100%;
+
+%slider {
+	z-index: 99999;
+}
+
+%slider-form {
+	background-color: $blue-bright; // move to theme;
+	header {
+		@extend %form-header;
+	}
+	.form-edit {
+		overflow-y: auto;
+		width: 100%;
+		height: calc(100% - 61px);
+		@extend %form;
+	}
+}
+
+%edit-slider {
+	height: $edit-slider-hg;
+	width: 589px;
+	@include transition(all 0.5s ease-in-out);
+	@extend %slider-form;
+}

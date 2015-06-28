@@ -1,0 +1,21 @@
+/*
+animations
+ */
+
+@include fade-in();
+@include fade-out();
+
+.modal {
+	display: none;
+	@include modal($bg-color: rgba(0,0,0,0.7));
+	&.show {
+		display: block;
+	} 
+}
+
+.items-wrap {
+  color: $text-color;
+  .input label, .input input {
+    color: $text-color;
+  }
+}

@@ -1,0 +1,11 @@
+@if(isset($metadatas))
+    @foreach($metadatas as $meta)
+    <li class="act-edit-item meta">
+      <span class="number">{{ $meta->number ? $meta->number : "null" }}</span>
+      <span class="main-type">{{ $meta->docType ? $meta->docType : "null" }}</span>
+      <span class="title">{{ $meta->title ? $meta->title : "(no title) ".$meta->originalFilename }}</span>
+      <span class="publishedDate">{{ $meta->publishedDate ? $meta->publishedDate : "null" }}</span>      
+      <span class="created-date">{{ $meta->created_at ? date("Y-m-d", strtotime($meta->created_at)) : "null" }}</span>
+    </li>
+    @endforeach
+    @endif

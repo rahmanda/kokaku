@@ -1,0 +1,60 @@
+%flash-text {
+	display: block;
+	font-size: 1em;
+	word-break: break-word;
+}
+
+%flash {
+	width: 100%;
+	line-height: 2.5em;
+	padding: 10px 20px;
+	font-weight: $regular;
+	@include transition(all 0.25s ease-in-out);
+}
+
+.flash {
+	position: fixed;
+	left: 0;
+	bottom: -55px; // 55px
+	background-color: $blue-bright;
+	@extend %flash;
+	&.show {
+		bottom: 0px;
+	}
+	&.success {
+		background-color: $blue-bright;
+	}
+	&.error {
+		background-color: $orange;
+	}
+	&.success .icon { // ???
+		position: absolute;
+		top: 10px;
+		left: 20px;
+		display: block;
+		@include iconize($content: $icon-check); 
+	}
+	&.error .icon {
+		position: absolute;
+		top: 10px;
+		left: 20px;
+		display: block;
+		@include iconize($content: $icon-exclamation); 
+	} 
+	.message {
+		color: $white;
+		@extend %flash-text;
+		padding: 0 0 0 40px;
+		a {
+			text-decoration: underline;
+			color: $orange;
+		}
+	}
+	.btn-close {
+		display: block;
+		position: absolute;
+		top: 10px;
+		right: 35px;
+		@extend %button-x;
+	}
+}

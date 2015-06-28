@@ -1,0 +1,87 @@
+/*
+Name : side-navigation
+Function : styling layout for side-navigation 
+*/
+
+$side-nav-lh: 2.5em;
+$side-nav-pd: 0 20px;
+$side-nav-min-w: 200px;
+$side-nav-br: 1px solid $border-color;
+$side-nav-hr-color: $border-color;
+
+%base-side-wrap {
+	width: $side-nav-min-w;
+	height: calc(100% - 50px); // change immediately!
+	overflow-y: auto;
+	position: absolute;
+	background-color: $gray-super-light; // move to theme
+	top: 50px;
+	left: 0;
+	border-right: $side-nav-br; // move to theme
+}
+
+%base-side-nav {
+	header {
+		padding: $side-nav-pd;
+		h2 {
+			line-height: $side-nav-lh - 0.5em;
+			font-size: 1.75em;
+			font-weight: $light;
+		}
+	}
+	li {   
+		// border-bottom: $side-nav-br; // move to theme
+		&:hover {
+			background-color: $side-nav-hr-color; // move to theme
+		}
+		a {
+			display: block;
+			line-height: $side-nav-lh;
+			padding: $side-nav-pd;
+		}
+		i {
+			margin-right: 20px;
+		}
+	}
+	.active {
+		font-weight: $bold;
+		background-color: $side-nav-hr-color;// move to theme
+	}
+}
+
+%base-side-info {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	ul {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	li {
+		display: inline-block;
+		padding: 0 10px;
+		a {
+			font-size: 12px;
+			color: $content-bg-color;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+	h3 {
+		font-size: 12px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+}
+
+.side-wrap {
+	@extend %base-side-wrap;
+	.side-nav {
+		@extend %base-side-nav;
+	}
+	.info {
+		@extend %base-side-info;
+	}
+}

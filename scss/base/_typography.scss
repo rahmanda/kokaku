@@ -1,0 +1,26 @@
+/*
+Name : typography
+Function : store typography stuff
+ */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+
+$font-size: 14px;
+$top-nav-font-size: 13px;
+$p-font-size: $font-size;
+$h1-font-size: 2em;
+$h2-font-size: 1.5em;
+$h3-font-size: 1.25em;
+$h4-font-size: 1.15em;
+$brand-font-size: $h2-font-size;
+$font-family: 'Open Sans', Helvetica, Sans-serif;
+$regular: 400;
+$bold: 600;
+$light: 300;
+
+// icon from font-awesome
+$icon-exclamation: "\f12a";
+$icon-check: "\f00c";
+$icon-upload: "\f093";
+$icon-metadata: "\f1c9";
+$icon-setting: "\f0ad";
+$icon-logout: "\f08b";

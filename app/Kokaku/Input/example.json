@@ -1,0 +1,42 @@
+{
+  "title": "lorem ipsum dolor sit amet",
+  "number": "08/02/2015",
+  "docType": "TapMPR",
+  "publishedDate": "2015-06-02",
+  "validDate": "2015-06-02",
+  "siteUrl": "http://domain.com/link-to-html-page",
+  "docUrl": "http://domain.com/link-to-document-page",
+  "description": "some description for the document",
+  "altSiteUrl": [
+    {
+      "altSiteUrl": "http://anotherdomain.com/link-to-html-page"
+    },
+    {
+      "altSiteUrl": "http://anotherdomain.com/link-to-html-page"
+    }
+  ],
+  "altDocUrl": [
+    {
+      "altDocUrl": "http://anotherdomain.com/link-to-document-page"
+    },
+    {
+      "altDocUrl": "http://anotherdomain.com/link-to-document-page"
+    }
+  ],
+  "creator": {
+    "name": "Nama lembaga"
+  },
+  "enactment": {
+    "number": "08/02/2015"
+  },
+  "unappliedEffect": [
+    {
+      "docNumber": "08/02/2015",
+      "status": "mengganti"
+    },
+    {
+      "docNumber": "08/02/2015",
+      "status": "mencabut"
+    }
+  ]
+}

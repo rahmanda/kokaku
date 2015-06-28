@@ -1,0 +1,25 @@
+@mixin fade-in($from-x: 20px, $to-x: 0) {
+	@include keyframes(fade-in) {
+		from { 
+			opacity: 0;
+			@include transform(translateX($from-x));
+		}
+		to {
+			opacity: 1;
+			@include transform(translateX($to-x));
+		}
+	}
+}
+
+@mixin fade-out($from-x: 0, $to-x: 20px) {
+	@include keyframes(fade-in) {
+		from {
+			opacity: 1;
+			@include transform(translateX($from-x));
+		}
+		to {
+			opacity: 0;
+			@include transform(translateX($to-x));
+		}
+	}
+}

@@ -1,0 +1,10 @@
+/*
+Name : main.scss
+Function: Collect all partial stylesheet file
+*/
+
+@import 'base/module'; 
+@import 'utils/module';
+@import 'components/module';
+@import 'layout/module';
+@import 'pages/module';

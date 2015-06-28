@@ -1,0 +1,33 @@
+/*
+Name : _module.scss
+Description: Collect partial stylesheet file in layout folder
+Version: 1.0.0
+*/
+ 
+@import 'bourbon';       
+@import 'neat';
+@import 'footer';
+@import 'side-navigation';
+@import 'content';
+@import 'top-navigation';
+
+body {
+	background-color: $bg-color;
+}
+.app {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	// @include transition(all 0.5s ease-in-out);
+}
+.app.move {
+	// left: -589px;
+}
+@include scrollbars(.5em, darken($border-color, 40%));
+
+.modal {
+  @include modal($fg-color: $white, $color: $text-color); 
+}

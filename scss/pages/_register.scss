@@ -1,0 +1,55 @@
+/**
+ * Form register section
+ */ 
+.form-register {
+  background-color: $blue-bright;
+  padding: 5px 0 50px 0;
+}
+
+.form-register .form-title {
+  text-align: center;
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: 3em;
+  color: white;
+  margin: 2rem;
+}  
+
+.form-register form {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.form-register label {
+  display: block;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-bottom: .5em;
+}
+
+.form-register input[type='text'], .form-register input[type='password'] {
+  font-family: $font-family;
+  display: block;
+  width: 100%;
+  border: 1px solid #5FA1E0;
+  font-size: 2em;
+  padding: .25em .5em;
+  margin-bottom: 1em;
+}
+
+.form-register input[type='submit'] {
+  font-family: $font-family;
+  display: block;
+  width: 100%;
+  font-size: 2em;
+  font-weight: 700;
+  background-color: #00305E;
+  border: 1px solid #00305E;
+  color: white;
+  padding: 0.5em 1em;
+}
+
+.form-register input[type='submit']:hover {
+  cursor: pointer;
+}

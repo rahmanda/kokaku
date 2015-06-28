@@ -1,0 +1,153 @@
+/*
+Name: top-navigation
+Function: store extended rule for top navigation
+ */
+
+$top-wrap-lh: 3.5em;
+$top-brand-pd: 0 20px;
+$top-nav-pd: $top-brand-pd;
+$top-nav-br: 1px solid $content-bg-color;
+
+%act-account {
+	&:hover {
+		background-color: $nav-hover-bg-color;
+		cursor: pointer;
+	}
+	&.active {
+		background-color: $nav-hover-bg-color;
+	}
+	padding: $top-brand-pd;
+	line-height: $top-wrap-lh;
+	color: white;
+	text-align: right;
+}
+
+%base-top-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	font-size: $font-size;
+	font-weight: $regular;
+	border-bottom: $top-nav-br;
+	background-color: $content-bg-color;
+	@include transition(all 0.5s ease-in-out);
+}
+%base-brand {
+	float: left;
+	display: inline-block;
+	padding: $top-brand-pd;
+	width: 200px; // ???  
+	h1 {
+		line-height: $top-wrap-lh;
+		font-size: $font-size;
+		font-weight: $bold;
+		color: $bg-color;
+		display: inline-block;
+	}
+	.btn-back {
+		@extend %button-back;
+		margin-right: 5px;
+	}
+}
+%base-top-nav {
+	float: right;
+	i {
+		margin-right: 5px; // ???
+	}
+	.nav-list li {
+		float: left;
+		&:hover {
+			background-color: $nav-hover-bg-color;
+			a {
+				color: $nav-hover-text-color;
+			}
+		}
+		a {
+			color: $bg-color;
+			padding: $top-nav-pd;
+			line-height: $top-wrap-lh;
+			display: block;
+		}
+	}
+	.act-upload {
+		position: relative;
+		line-height: $top-wrap-lh;
+		padding: $top-nav-pd;
+	}
+	.act-upload #fileupload {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+%base-state-nav {
+	@extend %base-top-nav;
+	color: $white;
+	i {
+		margin-right: 5px; // ???
+		// border: 2px solid $white;
+		padding: 5px;
+		// border-radius: 50%;
+		font-size: 1.15em;
+	}
+	clear: right;
+	float: left;
+	display: inline-block;
+}
+.top-wrap {
+	@extend %base-top-wrap;
+	.brand {
+		@extend %base-brand;
+	}
+	.top-nav {
+		@extend %base-top-nav;
+		.act-account, .act-upload-progress {
+			position: relative;
+			display: block;
+			float: right;
+			p {
+				@extend %act-account;
+			}
+			.options {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				@include options(100%);
+				border: 2px solid $nav-hover-bg-color;
+			}
+
+			.prog-upload {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				@include options(200%);
+				border: 2px solid $nav-hover-bg-color;
+				.bar-prog {
+					display: block;
+					padding: 15px 20px;
+					.bar {
+						display: block;
+						height: 5px;
+						background-color: $blue-bright;
+					}
+				}
+			}
+		}
+	}
+	.state-nav {
+		@extend %base-state-nav;
+	}
+}
+
+// .top-wrap.move {
+// 	left: -589px;
+// }
+

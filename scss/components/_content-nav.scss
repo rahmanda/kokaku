@@ -1,0 +1,92 @@
+/*
+Name: content-nav
+Function: store style for content navigations
+ */
+$content-nav-wd: 100%;
+$options-wd: 178px;
+$content-act-sort-wd: 135px;
+$content-nav-a-pd : 0 20px;
+$content-nav-a-lh: 3.5em;
+$content-nav-a-fz: $h3-font-size;  
+
+%content-nav {
+	width: $content-nav-wd;
+	z-index: 99;
+	background-color: white; // move to theme
+	color: $black-calm;
+}
+
+%content-nav-ul{
+	li {
+		display: inline-block;
+		a {
+			color: $black-calm; // move to theme
+			padding: $content-nav-a-pd;
+			line-height: $content-nav-a-lh;
+			display: block;
+		} 
+	}
+}
+
+%content-nav-active {
+	font-weight: $bold;
+	border-bottom: 2px solid $blue-bright;
+} 
+
+%content-items-count {
+	line-height: 3.5em;
+	padding: 0 20px;
+	font-weight: $bold;
+	span {
+		font-weight: $light;
+		padding: 0 5px;
+	}
+}
+
+%content-act-sort { // move to layout
+	// width: $content-act-sort-wd;
+	p {
+		line-height: 3.5em;
+		i {
+			margin-left: 5px;
+			font-weight: $bold;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	.options { // move to layout
+		position: absolute;
+		top: 100%;
+		right: 20px;
+		@include options($options-wd);
+	}
+}
+
+%content-act-tabs {
+	display: inline-block;
+	.lists .tab {
+		box-sizing: border-box;
+		padding: 0 20px;
+		line-height: 3.5em;
+		border-right: 1px solid $gray-light;
+		font-weight: $bold;
+		color: $gray-light;
+		float: left;
+		&:hover {
+			cursor: pointer;
+			color: $text-color;
+		}
+		&.active {
+			background: white;
+			color: $text-color; 
+		}
+	}
+}
+
+%tabs {
+	display: none;
+	&.show {
+		display: block;
+	}
+}

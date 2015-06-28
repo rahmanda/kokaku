@@ -1,0 +1,40 @@
+@mixin options($options-wd: 100%, $border-color: $black-calm, $text-align: left, $hover: true) {
+	width: $options-wd;
+	background-color: $white; // move to theme
+	border: 2px solid $border-color;
+	display: none; 
+	li {
+		position: relative;
+		display: block;
+		text-align: $text-align;
+		padding: 10px 15px;
+		@if $hover {
+			&:hover {
+				background-color: $gray-light; // move to theme
+				cursor: pointer;
+			}
+		}
+	}
+	.active {
+		@include iconize($content: "\f111", $font-size: 0.75em, $color: $black-calm);
+		@if $text-align == left {
+			&::before {
+				top: 1em;
+				right: 15px;
+			}
+		}
+		@if $text-align == right {
+			&::before {
+				top: 1em;
+				left: 15px;
+			}
+		}
+	}
+	&.show { 
+		display: block;
+	}
+}
+
+@mixin progress-upload($options-wd: 100%) {
+	
+} 

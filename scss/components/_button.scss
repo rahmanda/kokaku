@@ -1,0 +1,78 @@
+%button {
+	width: 100%;
+	border: none;
+	padding: 8px 10px;
+	font-family: inherit;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+%button-x { // ????
+	display: block;
+	@include iconize();
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+%button-remove {
+	&:hover {
+		cursor: pointer;
+	}
+	@include iconize($content: 'x', $font-size: 1em, $color: darken($gray-light, 20%), $font-family: 'Helvetica');
+}
+
+%button-back {
+	i {
+		font-size: 1.5em;
+		color: $white;
+	}
+}
+
+%button-add {
+	background-color: $blue-bright;
+	color: $white;
+	padding: 8px 10px;
+	float: right;
+	i {
+		color: $white;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+%button-upload {
+	.upload-group {
+		position: relative;
+		display: block;
+		overflow: hidden;
+		height: 31px;
+		margin-bottom: 20px;
+	}
+	input[type="file"] {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 31px;
+		width: 82px;
+	}
+	.act-upload {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: none;
+		@extend %button-add;
+	}
+	.act-upload:active, .act-upload:hover, .act-upload:focus {
+		outline: none;
+	}
+	.act-upload[disable="true"] {
+		background-color: $gray;
+		&:hover {
+			cursor: default;
+		}
+	}
+}

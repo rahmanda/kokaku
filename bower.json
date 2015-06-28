@@ -1,0 +1,30 @@
+{
+  "name": "kokakuv2",
+  "version": "0.2.0",
+  "authors": [
+    "Rahmanda Wibowo <rahmandawibowo@gmail.com>"
+  ],
+  "description": "",
+  "main": "public/index.php",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.3.0",
+    "mustache.js": "~2.1.1",
+    "nanobar": "~0.2.0",
+    "momentjs": "~2.10.3",
+    "js-cookie": "~2.0.2"
+  },
+  "devDependencies": {
+    "qunit": "~1.18.0",
+    "sinon-1.15.0": "http://sinonjs.org/releases/sinon-1.15.0.js"
+  }
+}

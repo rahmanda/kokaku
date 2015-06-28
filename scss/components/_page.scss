@@ -1,0 +1,12 @@
+@mixin page($width: 100%, $bg-color: $white, $color: $black-calm, $top: 50px, $padding: 20px) {
+	display: block;
+	margin-top: $top;
+	background-color: $bg-color;
+	color: $black-calm;
+	width: $width;
+	height: calc(100% - 50px); // change this 
+	padding: $padding;
+	@include animation(page-enter 0.3s ease-in 1);
+	
+	@extend %form;
+}

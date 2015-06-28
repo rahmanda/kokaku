@@ -1,0 +1,6 @@
+/public/vendor
+/node_modules
+/lumen.log
+/vendor
+.env
+selenium-server.jar
