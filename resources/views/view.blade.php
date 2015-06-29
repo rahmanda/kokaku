@@ -33,6 +33,7 @@
 <script src="/vendor/jquery.geturlparam/jquery.geturlparam.min.js"></script>
 <script src="/vendor/jquery-ajax-progress/js/jquery.ajax-progress.js"></script>
 <script src="/vendor/nanobar/nanobar.min.js" type="text/javascript"></script>
+<script src="/vendor/js-cookie/src/js.cookie.js" type="text/javascript"></script>
 <script src="/vendor/jQuery-File-Upload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
 <script src="/vendor/jQuery-File-Upload/js/jquery.iframe-transport.js" type="text/javascript"></script>
 <script src="/vendor/jQuery-File-Upload/js/jquery.fileupload.js" type="text/javascript"></script>
