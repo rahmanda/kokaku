@@ -23,12 +23,15 @@ var paths = {
   prefix.scripts + "kokaku.pagination.js",
   prefix.scripts + "kokaku.metadatas.js",
   prefix.scripts + "kokaku.flash.js",
+  prefix.scripts + "kokaku.auth.js",
   prefix.scripts + "kokaku.schemaForm.js",
   prefix.scripts + "kokaku.contentTab.js",
   prefix.scripts + "kokaku.upload.js",
   prefix.scripts + "kokaku.statistic.js",
   prefix.scripts + "kokaku.sideNav.js",
   prefix.scripts + "kokaku.modal.js",
+  prefix.scripts + "kokaku.user.js",
+  prefix.scripts + "kokaku.sync.js",
   prefix.scripts + "kokaku.preference.js"
   ]
 };
