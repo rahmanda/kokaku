@@ -4,6 +4,7 @@
  * Dependencies:
  *   local:
  *     - Modal
+ *     - Auth
  *   external:
  *     - jQuery
  *     - [external module - like open source]
@@ -15,6 +16,7 @@ function Preference(){
 
   // dependencies
   self.modal = new Modal(); 
+  self.Auth = new Auth();
 
   // options
   self.options = ["setting", "tutorial", "logout"];
@@ -50,7 +52,7 @@ function Preference(){
   });
 
   self.elLogout.on("click", function(e) {
-
+    self.Auth.logout();
   });
 }
 

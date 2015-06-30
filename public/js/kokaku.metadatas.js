@@ -12,9 +12,9 @@
 function Metadatas() {
   // properties
   this.urls = {
-    all: "http://localhost:8000/metadata/fetchAll/",
-    complete: "http://localhost:8000/metadata/fetchComplete/",
-    incomplete: "http://localhost:8000/metadata/fetchIncomplete/"
+    all: "http://localhost:8001/metadata/fetchAll/",
+    complete: "http://localhost:8001/metadata/fetchComplete/",
+    incomplete: "http://localhost:8001/metadata/fetchIncomplete/"
   };
 
   this.pagination = new Pagination();

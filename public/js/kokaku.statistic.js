@@ -17,7 +17,7 @@ function Statistic() {}
 Statistic.prototype.getStat = function () {
   var self = this;
   $.ajax({
-    url: "http://localhost:8000/metadata/count",
+    url: "http://localhost:8001/metadata/count",
     method: "GET",
     dataType: "json",
     success: function(data) {

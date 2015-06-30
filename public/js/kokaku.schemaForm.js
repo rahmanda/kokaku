@@ -51,7 +51,7 @@ SchemaForm.prototype.init = function() {
 SchemaForm.prototype.render = function() {
   var self = this;
   $.ajax({
-    url: "http://localhost:8000/metadata/formSchema.json",
+    url: "http://localhost:8001/metadata/formSchema.json",
     method: "GET",
     dataType: "json",
     success: function(data) {
@@ -63,7 +63,7 @@ SchemaForm.prototype.render = function() {
 SchemaForm.prototype.setValue = function(itemId) {
   var self = this;
   $.ajax({
-    url: "http://localhost:8000/metadata/item/"+itemId,
+    url: "http://localhost:8001/metadata/item/"+itemId,
     method: "GET",
     dataType: "json",
     progress: function() {
@@ -91,7 +91,7 @@ SchemaForm.prototype.updateStatus = function() {
   var self = this;
   var itemId = this.id;
   $.ajax({
-    url: "http://localhost:8000/metadata/item/"+itemId,
+    url: "http://localhost:8001/metadata/item/"+itemId,
     method: "GET",
     dataType: "json",
     progress: function() {

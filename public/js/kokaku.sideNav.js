@@ -11,7 +11,7 @@
 function SideNav() {
   // properties
   this.statistic = new Statistic();
-  this.domain = 'http://localhost:8000';
+  this.domain = 'http://localhost:8001';
   this.urls = {
     incomplete: this.domain + '/metadata?view=incomplete&orderBy=created_at&order=desc&page=1',
     complete: this.domain + '/metadata?view=complete&orderBy=created_at&order=desc&page=1',

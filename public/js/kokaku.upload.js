@@ -12,7 +12,7 @@
 function Upload () {
     var self = this;
     var setting = {
-      url: "http://localhost:8000/upload",
+      url: "http://localhost:8001/upload",
       acceptFileTypes: /(\.|\/)pdf$/i,
       add: function(e, data) {
         self.add(e, data);
@@ -62,7 +62,7 @@ Upload.prototype.flash = new Flash();
 Upload.prototype.fileCount = 0;
 
 Upload.prototype.getSetting = {
-    url: "http://localhost:8000/upload",
+    url: "http://localhost:8001/upload",
     acceptFileTypes: /(\.|\/)pdf$/i,
     add: this.add,
     progressAll: this.progressFile,
