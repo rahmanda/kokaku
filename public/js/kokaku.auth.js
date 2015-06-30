@@ -3,13 +3,38 @@
  * Description: authentication
  * Dependencies:
  *   local:
- *     - [local module]
+ *     - Flash
  *   external:
  *     - jQuery
  *     - js.cookie
  */
-function Auth() { 
-  this.tokenKey = 'tknkk';
+function Auth() {
+  // current scope
+  var self = this;
+
+  // properties 
+  self.tokenKey = 'tknkk';
+  self.flash = new Flash();
+  self.nanobar = new Nanobar({
+    id: "nanobar"
+  });
+
+  // jQuery DOM
+  self.registerButton = $("#btn-register");
+  self.loginButton = $(".input-submit input");
+
+  // event handler
+  self.registerButton.on("click", function(e) {
+    e.preventDefault();
+
+    self.register();
+  });
+
+  self.loginButton.on("click", function(e) {
+    e.preventDefault();
+
+    self.login();
+  });
 }
 
 /**
@@ -22,25 +47,86 @@ Auth.prototype.login = function() {
 
   var self = this;
 
-  if(!self.isAuthenticate()) {
-    window.location.href = "http://localhost:8000/metadata";
+  if(self.isAuthenticate()) {
+
+    self.redirectTo("app");
+
+  } else {
+
+    var credentials = self.getLoginData();
+
+    $.ajax({
+      url: "http://matome.local/api/users/login",
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(credentials),
+      success: function(response) {
+        self.nanobar.go(100);
+        self.saveToken(response.token);
+        self.redirectTo("app");
+      },
+      progress: function() {
+        self.nanobar.go(50);
+      },
+      error: function(jqXHR) {
+        var message = jqXHR.responseJSON.message; 
+        self.nanobar.go(100);
+        self.flash.show("error", message);
+      }
+    });
   }
 
-  var credentials = self.getLoginData();
+}
 
-  $.ajax({
-    url: "http://localhost:8001/users",
-    method: "POST",
-    contentType: "application/json",
-    data: JSON.stringify(credentials),
-    success: function(response) {
-      self.saveToken(response.token);
-      window.location.href = "http://localhost:8000/metadata";
-    },
-    error: function(e, data) {
-      console.log(e);
-    }
-  });
+/**
+ * Redirect to desire option
+ * @param  {string} opt
+ * @return {void}    
+ */
+Auth.prototype.redirectTo = function(opt) {
+  if(opt == "app") {
+    window.location.href = "http://localhost:8001/metadata?view=incomplete&orderBy=created_at&order=desc&page=1";
+  } else if(opt == "login") {
+    window.location.href = "http://localhost:8001/login";
+  }
+}
+
+/**
+ * Attempt register
+ * @return {void}
+ */
+Auth.prototype.register = function() {
+  var self = this;
+
+  if(self.isAuthenticate()) {
+
+    self.redirectTo("app");
+
+  } else {
+
+    var credentials = self.getRegisterData();
+
+    $.ajax({
+      url: "http://matome.local/api/users",
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(credentials),
+      success: function(response) {
+        self.nanobar.go(100);
+        console.log(response);
+        self.flash.show("success", "You have successfully been registered. Please <a href='http://localhost:8001/login'>login</a> to continue.");
+      },
+      progress: function() {
+        self.nanobar.go(50);
+      },
+      error: function(jqXHR) {
+        var message = jqXHR.responseJSON.message; 
+        self.nanobar.go(100);
+        self.flash.show("error", message.join(" "));
+      }
+    });
+
+}
 
 }
 
@@ -50,8 +136,17 @@ Auth.prototype.login = function() {
  */
 Auth.prototype.getLoginData = function() {
   return {
-    username: $(".input .input-username").val(),
-    password: $(".input .input-password").val()
+    username: $(".input-username input").val(),
+    password: $(".input-password input").val()
+  }
+}
+
+Auth.prototype.getRegisterData = function() {
+  return {
+    email: $("#email").val(),
+    username: $("#username").val(),
+    password: $("#password").val(),
+    password_confirmation: $("#validate_password").val()
   }
 }
 
@@ -62,7 +157,7 @@ Auth.prototype.getLoginData = function() {
 Auth.prototype.logout = function() {
 
   Cookies.remove(this.tokenKey);
-  window.location.href = "http://localhost:8000/login";
+  this.redirectTo("login");
 
 }
 
@@ -73,7 +168,7 @@ Auth.prototype.logout = function() {
  */
 Auth.prototype.saveToken = function(token) {
 
-  Cookies.set(self.tokenKey, token, { path: 'http://loalhost:8000' });
+  Cookies.set(this.tokenKey, token, { expires: 7 });
 
 }
 
@@ -83,7 +178,7 @@ Auth.prototype.saveToken = function(token) {
  */
 Auth.prototype.getToken = function() {
   
-  return Cookies.get(self.tokenKey);
+  return Cookies.get(this.tokenKey);
 
 }
 
@@ -93,18 +188,10 @@ Auth.prototype.getToken = function() {
  */
 Auth.prototype.isAuthenticate = function() {
 
-  if(Cookies.get(self.tokenKey)) {
+  if(this.getToken()) {
     return true;
+  } else {
+    return false;
   }
-
-  return false;
-
-}
-
-Auth.prototype.getUserData = function() {
-
-}
-
-Auth.prototype.getPreferenceData = function() {
 
 }
