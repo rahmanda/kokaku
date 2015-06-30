@@ -7,9 +7,9 @@
 |--------------------------------------------------------------------------
 */
 
-$app->get('/', array('as' => 'app', function() {
-  return view('app', array('route' => 'app'));
-}));
+$app->get('/', function() {
+  return view('login');
+});
 
 $app->get('login', function() {
   return view('login');
